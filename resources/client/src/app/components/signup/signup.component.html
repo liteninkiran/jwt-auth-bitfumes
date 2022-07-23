@@ -1,0 +1,74 @@
+<div class="mt-4 col-8 offset-2">
+
+    <div class="card">
+
+        <div class="card-header">Signup Form</div>
+
+        <div class="card-body">
+
+            <form #signupForm=ngForm (ngSubmit)="submitForm()">
+
+                <!-- Name -->
+                <div class="row mb-3">
+                    <label for="name" class="col-sm-2 col-form-label">Name</label>
+                    <div class="col-sm-10 mb-2">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" [(ngModel)]="form.name" required>
+                        <div class="alert alert-danger mb-0 mt-2" [hidden]="!error.name" *ngFor="let err of error.name">
+                            {{ err }}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="row mb-3">
+                    <label for="email" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10 mb-2">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email address" [(ngModel)]="form.email" required>
+                        <div class="alert alert-danger mb-0 mt-2" [hidden]="!error.email" *ngFor="let err of error.email">
+                            {{ err }}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Password -->
+                <div class="row mb-3">
+                    <label for="password" class="col-sm-2 col-form-label">Password</label>
+                    <div class="col-sm-10 mb-2">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter a password" [(ngModel)]="form.password" required>
+                        <div class="alert alert-danger mb-0 mt-2" [hidden]="!error.password" *ngFor="let err of error.password">
+                            {{ err }}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="row mb-3">
+                    <label for="password_confirmation" class="col-sm-2 col-form-label">Confirm Password</label>
+                    <div class="col-sm-10 mb-2">
+                        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Confirm password" [(ngModel)]="form.password_confirmation" required>
+                    </div>
+                </div>
+
+                <!-- Buttons -->
+                <div class="row">
+
+                    <!-- Sign Up -->
+                    <div class="col-sm-5 offset-2">
+                        <button type="submit" class="btn btn-primary" [disabled]="!signupForm.valid">Sign up</button>
+                    </div>
+
+                    <!-- Login -->
+                    <div class="col-sm-5 text-end">
+                        Already registered?
+                        <a routerLink="/login" class="btn-link">Login</a>
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

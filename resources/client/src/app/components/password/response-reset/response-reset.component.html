@@ -1,0 +1,57 @@
+<div class="mt-4 col-8 offset-2">
+
+    <div class="card">
+
+        <div class="card-header">Reset Password</div>
+
+        <div class="card-body">
+
+            <form #passwordResetForm=ngForm (ngSubmit)="submitForm()">
+
+                <!-- Email -->
+                <div class="row mb-3">
+                    <label for="email" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email address" [(ngModel)]="form.email" required>
+                        <div class="alert alert-danger mb-0 mt-2" [hidden]="!error.email" *ngFor="let err of error.email">
+                            {{ err }}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Password -->
+                <div class="row mb-3">
+                    <label for="password" class="col-sm-2 col-form-label">Password</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" [(ngModel)]="form.password" required>
+                        <div class="alert alert-danger mb-0 mt-2" [hidden]="!error.password" *ngFor="let err of error.password">
+                            {{ err }}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="row mb-3">
+                    <label for="password_confirmation" class="col-sm-2 col-form-label">Confirm Password</label>
+                    <div class="col-sm-10 mb-2">
+                        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Confirm password" [(ngModel)]="form.password_confirmation" required>
+                    </div>
+                </div>
+
+                <!-- Buttons -->
+                <div class="form-group row">
+
+                    <!-- Reset Password -->
+                    <div class="col-sm-5 offset-2">
+                        <button type="submit" class="btn btn-primary" [disabled]="!passwordResetForm.valid">Reset Password</button>
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

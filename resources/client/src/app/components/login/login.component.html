@@ -1,0 +1,59 @@
+<div class="mt-4 col-8 offset-2">
+
+    <div class="card">
+
+        <div class="card-header">Login Form</div>
+
+        <div class="card-body">
+
+            <form #loginForm=ngForm (ngSubmit)="submitForm()">
+
+                <div class="alert alert-danger" [hidden]="!error">
+                    {{ error }}
+                </div>
+
+                <!-- Email -->
+                <div class="row mb-3">
+                    <label for="email" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email address" [(ngModel)]="form.email" required>
+                    </div>
+                </div>
+
+                <!-- Password -->
+                <div class="row mb-3">
+                    <label for="password" class="col-sm-2 col-form-label">Password</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" [(ngModel)]="form.password" required>
+                    </div>
+                </div>
+
+                <!-- Buttons -->
+                <div class="form-group row">
+
+                    <!-- Login -->
+                    <div class="col-sm-5 offset-2">
+                        <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Login</button>
+                    </div>
+
+                    <!-- Signup -->
+                    <div class="col-sm-5 text-end">
+                        <a routerLink="/signup" class="btn btn-info">Sign up</a>
+                    </div>
+
+                </div>
+
+                <!-- Password Reset -->
+                <div class="text-end mt-3">
+                    <small>
+                        <a routerLink="/request-password-reset">Reset Password</a>
+                    </small>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
